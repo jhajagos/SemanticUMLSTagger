@@ -2,14 +2,15 @@ __author__ = 'janos'
 import text_chopper
 import json
 import csv
-
+import os
+import config
 
 def load_alignment_dicts():
-    f = open("../no_case_fragment_dict.json", "r")
+    f = open(os.path.join(config.json_directory, "no_case_fragment_dict.json"), "r")
     no_case_fragment_dict = json.load(f)
     f.close()
 
-    f = open("../no_case_str_dict.json")
+    f = open(os.path.join(config.json_directory, "no_case_str_dict.json"), "r")
     no_case_str_dict = json.load(f)
     f.close()
     return no_case_fragment_dict, no_case_str_dict
@@ -78,4 +79,5 @@ class TextAligner(object):
 
         for row in alignment_results:
             row += tagging_list
+            #print(row)
             csv_writer.writerow(row)

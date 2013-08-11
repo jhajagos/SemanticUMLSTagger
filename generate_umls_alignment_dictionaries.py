@@ -1,10 +1,9 @@
 __author__ = 'janos'
 
-import pymongo
 import text_chopper
-import sys
 import config
 import os
+import json
 
 try:
     from umls_vocabulary_to_skos import RRFReader, read_file_layout
@@ -17,32 +16,32 @@ def logger(text_to_log=""):
 
 
 DEFAULT_EXPORT_SABS = ['DSM4',
-'FMA',
-'GO',
-'HGNC',
-'ICD9CM',
-'MSH',
-'MTHFDA',
-'MTHSPL',
-'NCBI',
-'NCI',
-'NDFRT',
-'OMIM',
-'RXNORM',
-'SCTUSX',
-'SNOMEDCT',
-'SPN',
-'VANDF']
+                        'FMA',
+                        'GO',
+                        'HGNC',
+                        'ICD9CM',
+                        'MSH',
+                        'MTHFDA',
+                        'MTHSPL',
+                        'NCBI',
+                        'NCI',
+                        'NDFRT',
+                        'OMIM',
+                        'RXNORM',
+                        'SCTUSX',
+                        'SNOMEDCT',
+                        'SPN',
+                        'VANDF']
 
-def generate_json_files(sabs_to_export):
-
+def generate_json_files(sabs_to_export, export_full_sui_dict):
+    """Generates json alignment files which are used for alignment"""
     file_layout = read_file_layout(os.path.join(config.umls_to_skos_path,"script/umls_file_layout.json"))
 
     mrsty = RRFReader(os.path.join(config.umls_rrf_directory, "MRSTY.RRF"), file_layout["MRSTY.RRF"])
     mrconso = RRFReader(os.path.join(config.umls_rrf_directory, "MRCONSO.RRF"), file_layout["MRCONSO.RRF"])
-    mrsab =  RRFReader(os.path.join(config.umls_rrf_directory, "MRSAB.RRF"), file_layout["MRSAB.RRF"])
+    mrsab = RRFReader(os.path.join(config.umls_rrf_directory, "MRSAB.RRF"), file_layout["MRSAB.RRF"])
 
-    logger("Read in source information")
+    logger("Reading in source information")
     sab_dict = {}
 
     for row in mrsab:
@@ -52,8 +51,6 @@ def generate_json_files(sabs_to_export):
         if curver == 'Y':
             sab_dict[sab] = row
 
-
-
     logger("Reading in semantic types")
     sty_dict = {}
     for row in mrsty:
@@ -62,15 +59,17 @@ def generate_json_files(sabs_to_export):
 
     text_chopper_obj = text_chopper.TextChopperProcessor()
     sui_dict = {}
+    sui_info_dict = {}
 
     exact_case_str_dict = {}
     no_case_str_dict = {}
     exact_case_fragment_dict = {}
     no_case_fragment_dict = {}
 
-    logger("Reading in string to fragment")
+    logger("Reading in strings to fragment")
     i = 0
     j = 0
+    sab_counts = {}
     for row in mrconso:
         sui = row["SUI"]
         umls_str_raw = row["STR"]
@@ -82,7 +81,13 @@ def generate_json_files(sabs_to_export):
 
         if sab in sabs_to_export:
 
-            aui_dict = {"CUI": cui, "SAB": sab, "TTY": tty, "STR": umls_str, "STY" : sty_dict[cui], "SAB_NAME" : sab_dict[sab]["SON"]}
+            if sab in sab_counts:
+                sab_counts[sab] += 1
+            else:
+                sab_counts[sab] = 1
+
+            aui_dict = {"CUI": cui, "SAB": sab, "TTY": tty, "STR": umls_str, "STY" : sty_dict[cui], "SAB_NAME":
+                        sab_dict[sab]["SON"]}
 
             if sui in sui_dict:
                 sui_dict[sui][aui] = aui_dict
@@ -107,6 +112,8 @@ def generate_json_files(sabs_to_export):
                     else:
                         no_case_fragment_dict[text_fragment_upper] = [sui]
 
+                    sui_info_dict[sui] = {"umls_str_original": umls_str_raw, "umls_string": umls_str, "umls_string_upper": umls_str}
+
             exact_case_str_dict[umls_str] = sui
             umls_str_upper = umls_str.upper()
 
@@ -118,33 +125,54 @@ def generate_json_files(sabs_to_export):
                 no_case_str_dict[umls_str_upper] = [sui]
 
             j += 1
+        i += 1
 
         if i % 10000 == 0:
             logger("Read in %s row" % i)
-        i += 1
 
     logger("Read through at total of %s rows" % i)
     logger("Extracted from a total of %s rows" % j)
+    logger(sab_counts)
     logger("Read in %s SUIs" % len(sui_dict.keys()))
     logger("Read in %s exact fragments" % len(exact_case_fragment_dict.keys()))
 
-    import json
-
-    fecsd = open("exact_case_str_dict.json","w")
+    exact_case_str_dict_json = os.path.join(config.json_directory,"exact_case_str_dict.json")
+    logger("Writing %s" % exact_case_str_dict_json)
+    fecsd = open(exact_case_str_dict_json, "w")
     json.dump(exact_case_str_dict, fecsd)
     fecsd.close()
 
-    fncsd = open("no_case_str_dict.json","w")
+    no_case_str_dict_json = os.path.join(config.json_directory,"no_case_str_dict.json")
+    logger("Writing %s" % no_case_str_dict_json)
+    fncsd = open(no_case_str_dict_json, "w")
     json.dump(no_case_str_dict, fncsd)
     fncsd.close()
 
-    fecfd = open("exact_case_fragment_dict.json","w")
+    exact_case_fragment_dict_json = os.path.join(config.json_directory, "exact_case_fragment_dict.json")
+    logger("Writing %s" % exact_case_fragment_dict_json)
+    fecfd = open(exact_case_fragment_dict_json,"w")
     json.dump(exact_case_fragment_dict, fecfd)
     fecfd.close()
 
-    fncfd = open("no_case_fragment_dict.json","w")
+    no_case_fragment_dict_json = os.path.join(config.json_directory, "no_case_fragment_dict.json")
+    logger("Writing %s" % no_case_fragment_dict_json)
+    fncfd = open(no_case_fragment_dict_json, "w")
     json.dump(no_case_fragment_dict, fncfd)
     fncfd.close()
 
+    sui_info_dict_json = os.path.join(config.json_directory, "sui_info_dict.json")
+    logger("Writing %s" % sui_info_dict_json)
+    fsid = open(sui_info_dict_json,"w")
+    json.dump(sui_info_dict, fsid)
+    fsid.close()
+
+    if export_full_sui_dict:
+        sui_dict_json = os.path.join(config.json_directory, "sui_dict.json")
+        logger("Writing %s" % sui_dict_json)
+        fsd = open(sui_dict_json,"w")
+        json.dump(sui_dict, fsd)
+        fsd.close()
+
+
 if __name__ == "__main__":
-    generate_json_files(DEFAULT_EXPORT_SABS)
+    generate_json_files(DEFAULT_EXPORT_SABS, export_full_sui_dict=True)
