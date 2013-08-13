@@ -62,20 +62,23 @@ class TextAligner(object):
         for tagging_type in tagging_types:
             self.headers[tagging_type[0]] = i + header_next_ith
             self.alignment_headers_data_type[tagging_type[0]] = tagging_type[1]
+            i += 1
 
-    def export_text_alignment_to_csv(self, alignment_results, file_pointer, header=False, tagging_list=[]):
+
+    def column_headers(self):
+        numeric_dict = {}
+        for key in self.headers:
+            numeric_dict[self.headers[key]] = key
+
+        header_row = []
+        for i in range(len(numeric_dict.keys())):
+            header_row += [numeric_dict[i]]
+
+        return header_row
+
+
+    def export_text_alignment_to_csv(self, alignment_results, file_pointer, tagging_list=[]):
         csv_writer = csv.writer(file_pointer)
-
-        if header:
-            numeric_dict = {}
-            for key in self.headers:
-                numeric_dict[self.headers[key]] = key
-
-            header_row = []
-            for i in range(len(numeric_dict.keys())):
-                header_row += [numeric_dict[i]]
-
-            csv_writer.writerow(header_row)
 
         for row in alignment_results:
             row += tagging_list

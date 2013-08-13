@@ -18,20 +18,13 @@ def logger(text_to_log=""):
 DEFAULT_EXPORT_SABS = ['DSM4',
                         'FMA',
                         'GO',
+                        'ICD9CM'
                         'HGNC',
-                        'ICD9CM',
-                        'MSH',
-                        'MTHFDA',
-                        'MTHSPL',
                         'NCBI',
                         'NCI',
-                        'NDFRT',
                         'OMIM',
-                        'RXNORM',
-                        'SCTUSX',
-                        'SNOMEDCT',
-                        'SPN',
-                        'VANDF']
+                        'RXNORM']
+
 
 def generate_json_files(sabs_to_export, export_full_sui_dict):
     """Generates json alignment files which are used for alignment"""
@@ -86,8 +79,11 @@ def generate_json_files(sabs_to_export, export_full_sui_dict):
             else:
                 sab_counts[sab] = 1
 
-            aui_dict = {"CUI": cui, "SAB": sab, "TTY": tty, "STR": umls_str, "STY" : sty_dict[cui], "SAB_NAME":
-                        sab_dict[sab]["SON"]}
+            if export_full_sui_dict:
+                aui_dict = {"CUI": cui, "SAB": sab, "TTY": tty, "STR": umls_str, "STY" : sty_dict[cui], "SAB_NAME":
+                            sab_dict[sab]["SON"]}
+            else:
+                aui_dict = None
 
             if sui in sui_dict:
                 sui_dict[sui][aui] = aui_dict
@@ -175,4 +171,4 @@ def generate_json_files(sabs_to_export, export_full_sui_dict):
 
 
 if __name__ == "__main__":
-    generate_json_files(DEFAULT_EXPORT_SABS, export_full_sui_dict=True)
+    generate_json_files(DEFAULT_EXPORT_SABS, export_full_sui_dict=False)
