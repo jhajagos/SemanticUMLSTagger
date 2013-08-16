@@ -17,7 +17,7 @@ class TextChopperProcessor(object):
         return nltk.tokenize.word_tokenize(text_to_process)
 
     def clean_broken_words(self, list_of_text):
-        return [word for word in list_of_text if word not in self.stop_words and word not in self.punctuation]
+        return [word for word in list_of_text if word.upper() not in self.stop_words and word not in self.punctuation]
 
     def break_into_fragments(self, list_of_text, fragment_length=4):
         word_fragment_list = []

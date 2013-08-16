@@ -5,7 +5,9 @@ import csv
 import os
 import config
 
+
 def load_alignment_dicts():
+    """A helper function for loading text alignment"""
     f = open(os.path.join(config.json_directory, "no_case_fragment_dict.json"), "r")
     no_case_fragment_dict = json.load(f)
     f.close()
@@ -17,6 +19,8 @@ def load_alignment_dicts():
 
 
 class TextAligner(object):
+    """A class for aligning text against a source vocabulary dictionary"""
+
     def __init__(self, alignment_dict, exact_alignment_dict={}):
         self.alignment_dict = alignment_dict
         self.text_chopper = text_chopper.TextChopperProcessor()
@@ -25,12 +29,13 @@ class TextAligner(object):
         self.maximum_expansion = 100
 
         self.alignment_headers_data_type = {"sentence_number": "Int", "word_number": "Int", "fragment_length": "Int",
-                                  "fragment": "VarChar(1023)", "sentence": "Text",
-                        "n_suis": "Int", "exact_sui": "VarChar(255"}
+                                  "fragment": "VarChar(255)", "sentence": "Text",
+                        "n_suis": "Int", "exact_sui": "VarChar(255)"}
 
         self.exact_alignment_dict = exact_alignment_dict
 
     def align_text(self, text):
+        """Main method for text alignment"""
         h = 0
         alignment_results = []
         for sentence in self.text_chopper.break_into_sentences(text):
@@ -55,7 +60,7 @@ class TextAligner(object):
         return alignment_results
 
     def register_tagging_type(self,tagging_types):
-        """Consist of [("name","data_type)]"""
+        """Consist of [("name","data_type")]"""
 
         header_next_ith = max([self.headers[h] for h in self.headers]) + 1
         i = 0
@@ -64,8 +69,8 @@ class TextAligner(object):
             self.alignment_headers_data_type[tagging_type[0]] = tagging_type[1]
             i += 1
 
-
     def column_headers(self):
+        "Names for the columns for export"
         numeric_dict = {}
         for key in self.headers:
             numeric_dict[self.headers[key]] = key
@@ -73,14 +78,13 @@ class TextAligner(object):
         header_row = []
         for i in range(len(numeric_dict.keys())):
             header_row += [numeric_dict[i]]
-
         return header_row
 
 
     def export_text_alignment_to_csv(self, alignment_results, file_pointer, tagging_list=[]):
+        """For exporting text alignment to CSV"""
         csv_writer = csv.writer(file_pointer)
 
         for row in alignment_results:
             row += tagging_list
-            #print(row)
             csv_writer.writerow(row)

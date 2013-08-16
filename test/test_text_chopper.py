@@ -35,6 +35,12 @@ class TestTextChopper(unittest.TestCase):
         result2 = tcp.create_joined_fragments_from_text("Hydrogen bonded atom")
         self.assertEquals(["Hydrogen","Hydrogen||bonded","Hydrogen||bonded||atom","bonded","bonded||atom","atom"], result2)
 
+        result3 = tcp.create_joined_fragments_from_text("The Hydrogen bonded atom".upper())
+        self.assertEquals(["HYDROGEN","HYDROGEN||BONDED","HYDROGEN||BONDED||ATOM","BONDED","BONDED||ATOM","ATOM"], result3)
+
+        result4 = tcp.create_joined_fragments_from_text("The Hydrogen bonded atom")
+        self.assertEquals(["Hydrogen","Hydrogen||bonded","Hydrogen||bonded||atom","bonded","bonded||atom","atom"], result4)
+
 
 class TextAligner(unittest.TestCase):
     def setUp(self):
@@ -53,7 +59,7 @@ class TextAligner(unittest.TestCase):
         ta.register_tagging_type([("pmid","VarChar")])
 
         fp = open("alignment_test.csv", "wb")
-        ta.export_text_alignment_to_csv(text_alignment_results, fp, header=True, tagging_list=["21325273"])
+        ta.export_text_alignment_to_csv(text_alignment_results, fp, tagging_list=["21325273"])
         fp.close()
 
         f = open("alignment_test.csv", "r")

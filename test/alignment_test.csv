@@ -1,110 +1,98 @@
-sentence_number,word_number,fragment_length,fragment,sentence,n_suis,exact_sui,pmid
-0,0,1,CELL,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,8026,S0002474,21325273
+0,0,1,CELL,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,7204,S0002474,21325273
 0,0,2,CELL||SENESCENCE,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,3,S0023323,21325273
-0,1,1,SENESCENCE,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,14,S0084927,21325273
-0,2,1,PROCESS,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,276,S3004641,21325273
+0,1,1,SENESCENCE,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,5,S0084927,21325273
+0,2,1,PROCESS,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,255,S3004641,21325273
 0,3,1,IRREVERSIBLE,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,3,,21325273
-0,4,1,ARREST,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,79,S0356579,21325273
-0,5,1,CELL,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,8026,S0002474,21325273
-0,5,2,CELL||PROLIFERATION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,19,S5896948,21325273
-0,6,1,PROLIFERATION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,78,S0718846,21325273
+0,4,1,ARREST,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,46,S0356579,21325273
+0,5,1,CELL,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,7204,S0002474,21325273
+0,5,2,CELL||PROLIFERATION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,18,S5896948,21325273
+0,6,1,PROLIFERATION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,68,S0718846,21325273
 0,8,1,IMPORTANT,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,2,,21325273
 0,9,1,ROLE,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,61,S0083218,21325273
-0,10,1,TUMOR,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,6279,S1240598,21325273
+0,10,1,TUMOR,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,6057,S1240598,21325273
 0,10,2,TUMOR||SUPPRESSION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,4,S6144492,21325273
-0,11,1,SUPPRESSION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,87,,21325273
-1,0,1,RECENT,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,41,S0324755,21325273
-1,1,1,STUDIES,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,96,,21325273
-1,3,1,WNT,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,22,,21325273
-1,4,1,INHIBITION,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,141,S0001272,21325273
-1,5,1,TRIGGER,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,10,S0749048,21325273
-1,6,1,CELLULAR,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,185,S0834411,21325273
+0,11,1,SUPPRESSION,Cell senescence is a process of irreversible arrest of cell proliferation and plays an important role in tumor suppression.,46,,21325273
+1,0,1,RECENT,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,6,S0324755,21325273
+1,1,1,STUDIES,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,86,,21325273
+1,3,1,WNT,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,20,,21325273
+1,4,1,INHIBITION,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,137,S0001272,21325273
+1,5,1,TRIGGER,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,7,S0749048,21325273
+1,6,1,CELLULAR,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,159,S0834411,21325273
 1,6,2,CELLULAR||SENESCENCE,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,1,S0023577,21325273
-1,7,1,SENESCENCE,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,14,S0084927,21325273
-2,0,1,USING,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",33,,21325273
-2,1,1,METHODS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",88,S0061839,21325273
-2,2,1,REVERSE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",34,,21325273
-2,3,1,GENETICS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",51,S0044483,21325273
+1,7,1,SENESCENCE,Recent studies showed that Wnt inhibition is a trigger of cellular senescence.,5,S0084927,21325273
+2,0,1,USING,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",5,,21325273
+2,1,1,METHODS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",26,S0061839,21325273
+2,2,1,REVERSE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",29,,21325273
+2,3,1,GENETICS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",49,S0044483,21325273
 2,4,1,RECENTLY,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",1,,21325273
-2,5,1,IDENTIFIED,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",36,S0324822,21325273
-2,6,1,VENTX,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",2,S11604856,21325273
-2,7,1,HUMAN,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",674,S0049714,21325273
-2,7,2,HUMAN||HOMOLOG,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",7,,21325273
-2,8,1,HOMOLOG,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",2581,S4151572,21325273
-2,9,1,VERTEBRATE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",11,S0098204,21325273
-2,10,1,XENOPUS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",56,S0100411,21325273
-2,11,1,VENT,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",15,,21325273
-2,12,1,FAMILY,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",4421,S0040586,21325273
-2,12,2,FAMILY||HOMEOBOX,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",3,,21325273
-2,13,1,HOMEOBOX,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",495,S0378216,21325273
-2,14,1,GENES,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",12,S0044269,21325273
-2,15,1,NOVEL,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",33,S7675864,21325273
-2,16,1,WNT,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",22,,21325273
-2,17,1,REPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",43,S2103602,21325273
-2,18,1,PUTATIVE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",128,,21325273
-2,18,2,PUTATIVE||TUMOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",11,,21325273
-2,18,3,PUTATIVE||TUMOR||SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",11,,21325273
-2,19,1,TUMOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",6279,S1240598,21325273
-2,19,2,TUMOR||SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",94,S4178199,21325273
-2,20,1,SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",275,S6927534,21325273
-2,21,1,LYMPHOCYTIC,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",227,S0934404,21325273
-2,21,2,LYMPHOCYTIC||LEUKEMIA,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",122,S0058820,21325273
-2,22,1,LEUKEMIA,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",1415,S0056894,21325273
-3,2,1,VENTX,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",2,S11604856,21325273
-3,3,1,DIRECT,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",46,S0859854,21325273
-3,4,1,TRANSCRIPTIONAL,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",90,S7662212,21325273
-3,4,2,TRANSCRIPTIONAL||ACTIVATOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",9,S4177868,21325273
-3,5,1,ACTIVATOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",256,,21325273
-3,8,1,TUMOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",6279,S1240598,21325273
-3,8,2,TUMOR||SUPPRESSION,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",4,S6144492,21325273
-3,9,1,SUPPRESSION,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",87,,21325273
-3,10,1,PATHWAYS,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",22,S6137617,21325273
-4,0,1,ECTOPIC,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,91,S1316991,21325273
-4,0,2,ECTOPIC||EXPRESSION,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,2,S6124710,21325273
-4,1,1,EXPRESSION,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,273,S0876093,21325273
-4,2,1,VENTX,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,2,S11604856,21325273
-4,3,1,CANCER,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,5786,S0021809,21325273
+2,5,1,IDENTIFIED,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",11,S0324822,21325273
+2,7,1,HUMAN,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",601,S0049714,21325273
+2,7,2,HUMAN||HOMOLOG,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",5,,21325273
+2,8,1,HOMOLOG,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",893,S4151572,21325273
+2,9,1,VERTEBRATE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",10,S0098204,21325273
+2,10,1,XENOPUS,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",20,S0100411,21325273
+2,12,1,FAMILY,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",716,S0040586,21325273
+2,13,1,HOMEOBOX,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",182,S0378216,21325273
+2,14,1,GENES,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",9,S0044269,21325273
+2,15,1,NOVEL,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",17,S7675864,21325273
+2,16,1,WNT,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",20,,21325273
+2,17,1,REPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",14,S2103602,21325273
+2,18,1,PUTATIVE,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",36,,21325273
+2,18,2,PUTATIVE||TUMOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",7,,21325273
+2,18,3,PUTATIVE||TUMOR||SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",7,,21325273
+2,19,1,TUMOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",6057,S1240598,21325273
+2,19,2,TUMOR||SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",63,S4178199,21325273
+2,20,1,SUPPRESSOR,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",146,S6927534,21325273
+2,21,1,LYMPHOCYTIC,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",205,S0934404,21325273
+2,21,2,LYMPHOCYTIC||LEUKEMIA,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",114,S0058820,21325273
+2,22,1,LEUKEMIA,"Using methods of reverse genetics, we recently identified VentX, a human homolog of the vertebrate Xenopus Vent family of homeobox genes, as a novel Wnt repressor and a putative tumor suppressor in lymphocytic leukemia.",1228,S0056894,21325273
+3,2,1,DIRECT,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",36,S0859854,21325273
+3,3,1,TRANSCRIPTIONAL,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",65,S7662212,21325273
+3,3,2,TRANSCRIPTIONAL||ACTIVATOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",6,S4177868,21325273
+3,4,1,ACTIVATOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",137,,21325273
+3,7,1,TUMOR,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",6057,S1240598,21325273
+3,7,2,TUMOR||SUPPRESSION,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",4,S6144492,21325273
+3,8,1,SUPPRESSION,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",46,,21325273
+3,9,1,PATHWAYS,"Here, we show that VentX is a direct transcriptional activator of p53-p21 and p16ink4a-Rb tumor suppression pathways.",13,S6137617,21325273
+4,0,1,ECTOPIC,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,56,S1316991,21325273
+4,0,2,ECTOPIC||EXPRESSION,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,1,S6124710,21325273
+4,1,1,EXPRESSION,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,258,S0876093,21325273
+4,3,1,CANCER,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,5699,S0021809,21325273
 4,3,2,CANCER||CELLS,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,3,,21325273
-4,4,1,CELLS,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,606,S0023469,21325273
-4,5,1,CAUSED,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,99,,21325273
+4,4,1,CELLS,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,540,S0023469,21325273
+4,5,1,CAUSED,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,5,,21325273
 4,6,1,IRREVERSIBLE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,3,,21325273
-4,7,1,CELL,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,8026,S0002474,21325273
-4,7,2,CELL||CYCLE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,68,S0023252,21325273
+4,7,1,CELL,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,7204,S0002474,21325273
+4,7,2,CELL||CYCLE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,55,S0023252,21325273
 4,7,3,CELL||CYCLE||ARREST,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,3,S6119537,21325273
-4,8,1,CYCLE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,213,S6121713,21325273
+4,8,1,CYCLE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,140,S6121713,21325273
 4,8,2,CYCLE||ARREST,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,3,,21325273
-4,9,1,ARREST,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,79,S0356579,21325273
+4,9,1,ARREST,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,46,S0356579,21325273
 4,10,1,TYPICAL,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,8,,21325273
 4,12,1,PHENOTYPE,Ectopic expression of VentX in cancer cells caused an irreversible cell cycle arrest with a typical senescence-like phenotype.,19,S0072909,21325273
-5,1,1,INHIBITION,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",141,S0001272,21325273
-5,2,1,VENTX,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",2,S11604856,21325273
-5,3,1,EXPRESSION,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",273,S0876093,21325273
-5,4,1,RNA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",3940,S0082939,21325273
+5,1,1,INHIBITION,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",137,S0001272,21325273
+5,3,1,EXPRESSION,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",258,S0876093,21325273
+5,4,1,RNA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",336,S0082939,21325273
 5,4,2,RNA||INTERFERENCE,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",3,S2723392,21325273
-5,5,1,INTERFERENCE,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",21,S9300288,21325273
-5,7,1,CHEMOTHERAPEUTIC,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",14,,21325273
-5,9,1,SENESCENCE,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",14,S0084927,21325273
-5,10,1,LYMPHOCYTIC,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",227,S0934404,21325273
-5,10,2,LYMPHOCYTIC||LEUKEMIA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",122,S0058820,21325273
-5,11,1,LEUKEMIA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",1415,S0056894,21325273
-5,12,1,CELLS,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",606,S0023469,21325273
-6,0,1,THE,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,183,,21325273
-6,1,1,RESULTS,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,52,S6946898,21325273
-6,2,1,STUDY,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,667,S1342341,21325273
-6,4,1,MECHANISMS,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,10,,21325273
-6,5,1,UNDERLYING,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,98,,21325273
-6,6,1,TUMOR,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,6279,S1240598,21325273
-6,6,2,TUMOR||SUPPRESSION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,4,S6144492,21325273
-6,7,1,SUPPRESSION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,87,,21325273
-6,8,1,FUNCTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,235,S0889212,21325273
-6,9,1,VENTX,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,2,S11604856,21325273
-6,10,1,SUGGEST,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,1,S6927470,21325273
-6,11,1,ROLE,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,61,S0083218,21325273
-6,12,1,VENTX,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,2,S11604856,21325273
-6,13,1,POTENTIAL,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,152,S0397225,21325273
-6,14,1,TARGET,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,87,S6143373,21325273
-6,15,1,CANCER,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,5786,S0021809,21325273
-6,15,2,CANCER||PREVENTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,35,S6118805,21325273
-6,16,1,PREVENTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,89,S0397512,21325273
-6,16,2,PREVENTION||TREATMENT,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,3,,21325273
-6,17,1,TREATMENT,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,229,S0095177,21325273
+5,5,1,INTERFERENCE,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",20,S9300288,21325273
+5,7,1,CHEMOTHERAPEUTIC,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",12,,21325273
+5,9,1,SENESCENCE,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",5,S0084927,21325273
+5,10,1,LYMPHOCYTIC,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",205,S0934404,21325273
+5,10,2,LYMPHOCYTIC||LEUKEMIA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",114,S0058820,21325273
+5,11,1,LEUKEMIA,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",1228,S0056894,21325273
+5,12,1,CELLS,"Conversely, inhibition of VentX expression by RNA interference ameliorated chemotherapeutic agent-induced senescence in lymphocytic leukemia cells.",540,S0023469,21325273
+6,0,1,RESULTS,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,38,S6946898,21325273
+6,1,1,STUDY,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,627,S1342341,21325273
+6,3,1,MECHANISMS,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,10,,21325273
+6,5,1,TUMOR,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,6057,S1240598,21325273
+6,5,2,TUMOR||SUPPRESSION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,4,S6144492,21325273
+6,6,1,SUPPRESSION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,46,,21325273
+6,7,1,FUNCTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,179,S0889212,21325273
+6,9,1,SUGGEST,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,1,S6927470,21325273
+6,10,1,ROLE,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,61,S0083218,21325273
+6,12,1,POTENTIAL,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,116,S0397225,21325273
+6,13,1,TARGET,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,68,S6143373,21325273
+6,14,1,CANCER,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,5699,S0021809,21325273
+6,14,2,CANCER||PREVENTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,35,S6118805,21325273
+6,15,1,PREVENTION,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,88,S0397512,21325273
+6,16,1,TREATMENT,The results of our study further reveal the mechanisms underlying tumor suppression function of VentX and suggest a role of VentX as a potential target in cancer prevention and treatment.,193,S0095177,21325273

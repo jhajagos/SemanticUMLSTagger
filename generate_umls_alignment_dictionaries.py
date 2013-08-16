@@ -25,7 +25,6 @@ DEFAULT_EXPORT_SABS = ['DSM4',
                         'OMIM',
                         'RXNORM']
 
-
 def generate_json_files(sabs_to_export, export_full_sui_dict):
     """Generates json alignment files which are used for alignment"""
     file_layout = read_file_layout(os.path.join(config.umls_to_skos_path,"script/umls_file_layout.json"))
@@ -108,7 +107,7 @@ def generate_json_files(sabs_to_export, export_full_sui_dict):
                     else:
                         no_case_fragment_dict[text_fragment_upper] = [sui]
 
-                    sui_info_dict[sui] = {"umls_str_original": umls_str_raw, "umls_string": umls_str, "umls_string_upper": umls_str}
+                    sui_info_dict[sui] = {"umls_str_original": umls_str_raw, "umls_string": umls_str, "fragment": umls_str.upper()}
 
             exact_case_str_dict[umls_str] = sui
             umls_str_upper = umls_str.upper()

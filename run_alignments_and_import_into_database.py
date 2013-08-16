@@ -12,7 +12,10 @@ def logger(string_to_log=""):
     print(string_to_log)
 
 
-def run_alignment(input_csv_file_name, output_csv_file_name, column_to_align, columns_to_export=[], table_export_name = "", export_json_file_name=None, default_data_type="VarChar(255)"):
+def run_alignment(input_csv_file_name, output_csv_file_name, column_to_align, columns_to_export=[], table_export_name="",
+                  export_json_file_name=None, default_data_type="VarChar(255)", additional_list_of_fields_to_index=[]):
+    """Run alignment against a CSV file and export to a database"""
+
     with open(input_csv_file_name,'rb') as f:
         csv_reader = csv.DictReader(f)
 
@@ -45,10 +48,13 @@ def run_alignment(input_csv_file_name, output_csv_file_name, column_to_align, co
                     print("Aligned %s" % i)
 
         list_of_fields_to_index = ["fragment", "exact_sui","sentence_number", "word_number", "fragment_length"]
-        addition_list_of_fields_to_index = ["articleURI","vivoMemberURI", "articleURI", "vivoMember"]
+
+        complete_list_of_fields_to_index = list_of_fields_to_index + additional_list_of_fields_to_index
+
         if export_json_file_name is not None:
             add_export_to_json_file(export_json_file_name, table_export_name, output_csv_file_name,
-                                    text_aligner_obj.alignment_headers_data_type)
+                                    text_aligner_obj.alignment_headers_data_type,
+                                    fields_to_index=complete_list_of_fields_to_index)
 
 
 def export_fragments_to_csv(alignment_dict_json_name, alignment_csv_file_name, field_name_for_id="sui", table_name=None,
@@ -69,17 +75,17 @@ def export_fragments_to_csv(alignment_dict_json_name, alignment_csv_file_name, f
                 csv_writer.writerow([key, str_id])
 
     if export_json_file_name is not None:
-        add_export_to_json_file(export_json_file_name, table_name, alignment_csv_file_name,  alignment_csv_file_name,
-                                {"fragment": "VarChar(255)", field_name_for_id: "VarChar"},
+        add_export_to_json_file(export_json_file_name, table_name, alignment_csv_file_name,
+                                data_types_dict={"fragment": "VarChar(255)", field_name_for_id: "VarChar(255)"},
                                 fields_to_index=["fragment", field_name_for_id])
 
 
 def export_sui_info_to_csv(sui_info_json_name, table_export_name, sui_info_csv_file_name, export_json_file_name = None):
     """Pass"""
 
-    column_order = ["sui", "umls_string", "umls_string_upper", "umls_str_original"]
-    column_data_dict = {"sui": "VarChar(255)", "umls_string": "VarChar(1023)", "umls_string_upper": "VarChar(1023)",
-                        "umls_str_original": "VarChar(1023)"}
+    column_order = ["sui", "umls_string", "fragment", "umls_str_original"]
+    column_data_dict = {"sui": "VarChar(255)", "umls_string": "VarChar(1023)",
+                        "umls_str_original": "VarChar(1023)", "fragment": "Varchar(255)"}
 
     with open(sui_info_json_name, "r") as f:
         sui_info_dict = json.load(f)
@@ -91,13 +97,14 @@ def export_sui_info_to_csv(sui_info_json_name, table_export_name, sui_info_csv_f
         for key in sui_info_dict:
             row_to_write = [key]
             row = sui_info_dict[key]
+
             for field_name in column_order[1:]:
-                row_to_write += [row[key]]
+                row_to_write += [row[field_name]]
             csv_writer.writerow(row_to_write)
 
     if export_json_file_name is not None:
         add_export_to_json_file(export_json_file_name, table_export_name, sui_info_csv_file_name, column_data_dict,
-                                fields_to_index=["sui"])
+                                fields_to_index=["sui","fragment"])
 
 
 def add_export_to_json_file(json_file_name, table_name, csv_file_to_load, data_types_dict, fields_to_index=[],
@@ -114,7 +121,6 @@ def add_export_to_json_file(json_file_name, table_name, csv_file_to_load, data_t
             export_dict = json.load(f)
     else:
         export_dict = {}
-
 
     export_dict[table_name] = {"data_types_dict": data_types_dict,
                                "fields_to_index": fields_to_index, "csv_file_to_load": csv_file_to_load,
@@ -164,7 +170,6 @@ def mysql_export_from_json_file(json_file_name):
         sql_script += set_vars + "\n"
         sql_script += "%sset\n" % spacer
 
-
         cases_sql = ""
         for column in columns:
             data_type = data_types_dict[column]
@@ -188,12 +193,11 @@ def mysql_export_from_json_file(json_file_name):
 
         i = 0
         for index_to_create in indexes_to_create:
-            index_name = "idx_" + table[0] + str(random.randint(0,999)) +  "" + str(i)
+            index_name = "idx_" + table[0] + str(random.randint(0,999)) + str(i)
             sql_script += "create index %s on %s(%s);\n" % (index_name, table, index_to_create)
             i += 1
 
-
-        return sql_script
+    return sql_script
 
 
 def export_alignments_with_supporting_dbs_to_database():
@@ -201,21 +205,39 @@ def export_alignments_with_supporting_dbs_to_database():
     pass
 
 if __name__ == "__main__":
+    #TODO move this to a separate script, e.g., Run VIVO Alignment
 
-    # print("Aligning abstracts")
-    # run_alignment("../../workspace/sbu-mi-vivo-tools/reach_abox_2013-08-11.nt.pubmed.csv","E:/data/alignment/abstracts_tagged.csv","abstract",
-    #               columns_to_export=['vivoMember', 'pmid', 'vivoMemberURI', 'pub_date', 'articleURI'])
+    json_file_dict_name = "E:/data/alignment/analytics_db.json"
+    if os.path.exists(json_file_dict_name):
+        os.remove(json_file_dict_name)
+
+
+    print("Exporting Fragments")
+    export_fragments_to_csv("./json/no_case_fragment_dict.json", "E:/data/alignment/fragments_sui.csv",table_name="fragment_sui", export_json_file_name=json_file_dict_name)
+
+
+    print("Exporting SUI info")
+
+    export_sui_info_to_csv("./json/sui_info_dict.json", "sui_info", "E:/data/alignment/sui_info.csv",
+                           export_json_file_name=json_file_dict_name)
+
+    print("Aligning abstracts")
+    run_alignment("../../workspace/sbu-mi-vivo-tools/reach_abox_2013-08-11.nt.pubmed.csv",
+                  "E:/data/alignment/abstracts_tagged.csv","abstract",
+                   columns_to_export=['vivoMember', 'pmid', 'vivoMemberURI', 'pub_date', 'articleURI'],
+                   export_json_file_name=json_file_dict_name, table_export_name="abstracts_aligned",
+                  additional_list_of_fields_to_index=["articleURI", "vivoMemberURI", "articleURI", "vivoMember"])
 
     print("Aligning titles")
     run_alignment("../../workspace/sbu-mi-vivo-tools/reach_abox_2013-08-11.nt.pubmed.csv",
                   "E:/data/alignment/titles_tagged.csv", "title",
                   columns_to_export=['vivoMember', 'pmid', 'vivoMemberURI', 'pub_date', 'articleURI'],
-                  export_json_file_name="E:/data/alignment/analytics_db.json", table_export_name="titles_aligned")
+                  export_json_file_name=json_file_dict_name, table_export_name="titles_aligned",
+                  additional_list_of_fields_to_index=["articleURI", "vivoMemberURI", "articleURI", "vivoMember"]
+                  )
 
-
-    sql_script = mysql_export_from_json_file("E:/data/alignment/analytics_db.json")
+    sql_script = mysql_export_from_json_file(json_file_dict_name)
 
     with open("E:/data/alignment/load.sql","w") as f:
         f.write(sql_script)
     print(sql_script)
-
