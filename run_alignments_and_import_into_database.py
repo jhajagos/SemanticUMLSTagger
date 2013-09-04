@@ -7,10 +7,8 @@ import os
 import re
 import random
 
-
 def logger(string_to_log=""):
     print(string_to_log)
-
 
 def run_alignment(input_csv_file_name, output_csv_file_name, column_to_align, columns_to_export=[], table_export_name="",
                   export_json_file_name=None, default_data_type="VarChar(255)", additional_list_of_fields_to_index=[]):
