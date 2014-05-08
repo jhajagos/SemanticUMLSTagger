@@ -29,8 +29,8 @@ class TextAligner(object):
         self.maximum_expansion = 100
 
         self.alignment_headers_data_type = {"sentence_number": "Int", "word_number": "Int", "fragment_length": "Int",
-                                  "fragment": "VarChar(255)", "sentence": "Text",
-                        "n_suis": "Int", "exact_sui": "VarChar(255)"}
+                                            "fragment": "VarChar(255)", "sentence": "Text",
+                                            "n_suis": "Int", "exact_sui": "VarChar(255)"}
 
         self.exact_alignment_dict = exact_alignment_dict
 
@@ -70,7 +70,7 @@ class TextAligner(object):
             i += 1
 
     def column_headers(self):
-        "Names for the columns for export"
+        """"Names for the columns for export"""
         numeric_dict = {}
         for key in self.headers:
             numeric_dict[self.headers[key]] = key
@@ -79,7 +79,6 @@ class TextAligner(object):
         for i in range(len(numeric_dict.keys())):
             header_row += [numeric_dict[i]]
         return header_row
-
 
     def export_text_alignment_to_csv(self, alignment_results, file_pointer, tagging_list=[]):
         """For exporting text alignment to CSV"""
