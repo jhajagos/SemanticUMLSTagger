@@ -67,3 +67,52 @@ class TextAligner(unittest.TestCase):
         import pprint
         for row in csv_reader:
             pprint.pprint(row)
+
+    def test_get_start_and_end_position(self):
+        s1 = "The patient's mental   status cleared."
+        ta1 = text_aligner.TextAligner(self.no_case_fragment_dict, self.no_case_str_dict)
+        text_alignment_results1 = ta1.align_text(s1)
+        fragment1 = "MENTAL||STATUS"
+        r1 = ta1.get_start_and_end_position(s1, fragment1)
+
+        self.assertEquals([].__class__, r1.__class__)
+        self.assertEquals([(14, 29)], r1)
+
+        s2 = "The major heart issue is the patient had congestive heart failure and the the heart failure was severe."
+        ta2 = text_aligner.TextAligner(self.no_case_fragment_dict, self.no_case_str_dict)
+        text_alignment_results2 = ta2.align_text(s2)
+        fragment2 = "HEART||FAILURE"
+        r2 = ta2.get_start_and_end_position(s2, fragment2)
+
+        self.assertEquals([].__class__, r2.__class__)
+        self.assertEquals([(52, 65), (78, 91)], r2)
+
+        s3 = "The major failure of heart issue is the patient had congestive heart failure and the the heart failure was severe."
+        ta3 = text_aligner.TextAligner(self.no_case_fragment_dict, self.no_case_str_dict)
+        text_alignment_results2 = ta3.align_text(s3)
+        fragment3 = "HEART||FAILURE"
+        r3 = ta3.get_start_and_end_position(s3, fragment3)
+
+        self.assertEquals([].__class__, r3.__class__)
+        self.assertEquals([(63, 76), (89, 102)], r3)
+
+
+    def test_string_annotation(self):
+        s2 = "The major heart issue is the patient had congestive heart failure and the the heart failure was severe."
+        ta2 = text_aligner.TextAligner(self.no_case_fragment_dict, self.no_case_str_dict)
+        text_alignment_results2 = ta2.align_text(s2)
+        fragment2 = "HEART||FAILURE"
+        r2 = ta2.get_start_and_end_position(s2, fragment2)
+        rr2 = ta2.annotate_string_with_alignments(s2, [((52, 65), ('<<', '>>')), ((78, 91), ('<<', '>>'))])
+        self.assertEquals("The major heart issue is the patient had congestive <<heart failure>> and the the <<heart failure>> was severe.", rr2)
+
+
+    def test_filter_by_largest_aligned_annotation_first(self):
+
+        anl = [((10, 34),('<<','>>'), 'CONGESTIVE||HEART||FAILURE'), ((10, 26), ('<<','>>'),'CONGESTIVE||HEART'),
+                ((26, 34), ('<<','>>'),'HEART||FAILURE'), ((50, 58), ('<<','>>'),'DIABETES')]
+
+        ta2 = text_aligner.TextAligner(self.no_case_fragment_dict, self.no_case_str_dict)
+        r2 = ta2.filter_by_largest_aligned_annotation_first(anl)
+
+        self.assertEquals([((10, 34),('<<','>>'), 'CONGESTIVE||HEART||FAILURE'), ((50, 58), ('<<','>>'),'DIABETES')], r2)

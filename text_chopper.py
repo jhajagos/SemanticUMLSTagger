@@ -7,8 +7,11 @@ class TextChopperProcessor(object):
 
     def __init__(self):
         self.stop_words = nltk.corpus.stopwords.words("english")
-        self.stop_words = [w.upper() for w in self.stop_words]
-        self.punctuation = (',', "-", "?", ".", "!", '"', "'", "-", '(', ")", "$", ";", ":", "%", "#", "/", "@","'s","=","+/-","[","]","+","<",">")
+
+        self.stop_words = [w.upper() for w in self.stop_words if w != "not" and w != "no"]
+
+        self.punctuation = (',', "-", "?", ".", "!", '"', "'", "-", '(', ")", "$", ";", ":", "%", "#",
+                            "/", "@", "'s", "=", "+/-", "[", "]" ,"+", "<", ">")
 
     def break_into_sentences(self, text_to_process):
         return nltk.tokenize.sent_tokenize(text_to_process)
@@ -80,9 +83,3 @@ class TextChopperProcessor(object):
             processed_sentences += [processed_fragments]
 
         return processed_sentences
-
-
-
-
-
-

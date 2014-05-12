@@ -12,8 +12,9 @@ def logger(string_to_log=""):
     print(string_to_log)
 
 
-def run_alignment_against_csv_file(input_csv_file_name, output_csv_file_name, column_to_align, columns_to_export=[], table_export_name="",
-                  export_json_file_name=None, default_data_type="VarChar(255)", additional_list_of_fields_to_index=[]):
+def run_alignment_against_csv_file(input_csv_file_name, output_csv_file_name, column_to_align, columns_to_export=[],
+                                   table_export_name="", additional_constant_field=None, export_json_file_name=None,
+                                   default_data_type="VarChar(255)", additional_list_of_fields_to_index=[]):
     """Run alignment against a CSV file and export to a database"""
 
     with open(input_csv_file_name, 'rb') as f:
@@ -27,30 +28,36 @@ def run_alignment_against_csv_file(input_csv_file_name, output_csv_file_name, co
         for column_to_export in columns_to_export:
             tagging_column_list += [(column_to_export, default_data_type)]
 
+        if additional_constant_field is not None:
+            tagging_column_list += [(additional_constant_field[0], default_data_type)]
+
         text_aligner_obj.register_tagging_type(tagging_column_list)
+
 
         with open(output_csv_file_name, "wb") as fw:
             i = 0
             for row in csv_reader:
-                tagging_values = [row[key] for key in row if key in columns_to_export]
-                text_to_align = row[column_to_align]
-                print(text_to_align)
+                tagging_values = [row[key] for key in columns_to_export]
+
+
+                if additional_constant_field is not None:
+                    tagging_values += [additional_constant_field[1]]
 
                 if i == 0:
                     csv_writer = csv.writer(fw)
                     csv_writer.writerow(text_aligner_obj.column_headers())
 
+                text_to_align = row[column_to_align].strip()
                 if text_to_align != "" and text_to_align is not None:
                     alignment_result = text_aligner_obj.align_text(text_to_align)
                     text_aligner_obj.export_text_alignment_to_csv(alignment_result, fw, tagging_values)
                 i += 1
 
-                print("Read %s lines" % j)
                 if i % 100 == 0:
                     print("Aligned %s" % i)
                 j += 1
 
-        list_of_fields_to_index = ["fragment", "exact_sui","sentence_number", "word_number", "fragment_length"]
+        list_of_fields_to_index = ["fragment", "exact_sui", "sentence_number", "word_number", "fragment_length"]
 
         complete_list_of_fields_to_index = list_of_fields_to_index + additional_list_of_fields_to_index
 
@@ -203,48 +210,46 @@ def mysql_export_from_json_file(json_file_name):
     return sql_script
 
 
-def main(json_config_file, generate_fragments=False):
+def main(json_config_file, generate_fragments=True):
 
     with open(json_config_file) as f:
         configuration_to_run = json.load(f)
 
     base_directory = configuration_to_run["base directory"]
-
-    print(base_directory)
     full_path_directory = os.path.abspath(base_directory)
-
     if not os.path.exists(full_path_directory):
         os.makedirs(full_path_directory)
 
     json_file_dict_name = os.path.join(full_path_directory, configuration_to_run["class"] + ".json")
-
     if os.path.exists(json_file_dict_name):
         os.remove(json_file_dict_name)
 
-    print("Exporting Fragments")
-    fragments_csv = os.path.join(full_path_directory, "fragments_sui.csv")
+    if generate_fragments:
+        print("Exporting Fragments")
+        fragments_csv = os.path.join(full_path_directory, "fragments_sui.csv")
 
-    export_fragments_to_csv("./json/no_case_fragment_dict.json", fragments_csv,
-                            table_name="fragment_sui", export_json_file_name=json_file_dict_name)
+        export_fragments_to_csv("./json/no_case_fragment_dict.json", fragments_csv,
+                                table_name="fragment_sui", export_json_file_name=json_file_dict_name)
 
-    print("Exporting SUI info")
-    export_fragments_csv = os.path.join(full_path_directory, "sui_info.csv")
+        print("Exporting SUI info")
+        export_fragments_csv = os.path.join(full_path_directory, "sui_info.csv")
 
-    export_sui_info_to_csv("./json/sui_info_dict.json", "sui_info", export_fragments_csv,
-                           export_json_file_name=json_file_dict_name)
+        export_sui_info_to_csv("./json/sui_info_dict.json", "sui_info", export_fragments_csv,
+                               export_json_file_name=json_file_dict_name)
 
     for configuration in configuration_to_run["alignments to process"]:
 
         configuration_name = configuration["name"]
         alignment_table_name = "_".join(configuration_name.split(" "))
-        csv_alignment_file_name = os.path.join(full_path_directory, alignment_table_name + ".csv")
+        csv_alignment_file_name = os.path.join(full_path_directory, configuration["file_name_to_write"])
 
         run_alignment_against_csv_file(configuration["path to csv"],
-                  csv_alignment_file_name, configuration["field to align"],
-                  columns_to_export=configuration["columns to export"],
-                  export_json_file_name=json_file_dict_name,
-                  table_export_name=alignment_table_name,
-                  additional_list_of_fields_to_index=configuration["additional fields to index"])
+                                       csv_alignment_file_name, configuration["field to align"],
+                                       columns_to_export=configuration["columns to export"],
+                                       export_json_file_name=json_file_dict_name,
+                                       additional_constant_field=configuration["additional constant field"],
+                                       table_export_name=alignment_table_name,
+                                       additional_list_of_fields_to_index=configuration["additional fields to index"])
 
     sql_script = mysql_export_from_json_file(json_file_dict_name)
     sql_import_file = os.path.join(full_path_directory, configuration_to_run["class"] + "_load" + ".sql")
@@ -260,10 +265,11 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:
 
         example_config = {"base directory": "Z:/data/obc/alignment/", "class": "i2b2Obesity",
-                      "alignments to process": [{"name": "full text of note", "columns to export": ["document_id"],
+                      "alignments to process": [{"name": "discharge medication", "columns to export": ["document_id"],
                                                   "additional fields to index": ["document_id"],
                                                   "path to csv": "C:/Users/janos/GitHub/ClinicalNoteParsing/clinical_document.json.csv",
-                                                  "field to align": "discharge medications"
+                                                  "field to align": "discharge medications",
+                                                  "additional constant field": ("field_indexed", "discharge medication")
                                                   }]}
 
         with open("example.json", "w") as fw:
